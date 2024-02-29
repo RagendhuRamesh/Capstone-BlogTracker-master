@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BlogWebApi.Models.BlogInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4"> <b>List Of Blogs </b></h1>
+</div>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+                  <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                    
+                    <h2 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <p class="card-text">By @Html.DisplayFor(modelItem => item.EmpEmailId)</p>
+                    <p class="card-text">Date: @Html.DisplayFor(modelItem => item.DateOfCreation)</p>
+                    <p class="card-text">Subject: @Html.DisplayFor(modelItem => item.Subject)</p>
+                    <p class="url">
+                        <a href="@item.BlogUrl" class="btn btn-primary">
+                            @item.BlogUrl
+                        </a>
+                    </p>
+                    
+                    </div>
+                </div>
+            </div>
+    }
+</div>
+
+    <style>
+
+        .author, .date, .subject {
+            margin-bottom: 8px;
+        }
+
+        .url {
+            margin-top: 16px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+    </style>
